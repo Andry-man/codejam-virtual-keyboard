@@ -26,8 +26,7 @@ document.body.style.backgroundColor = 'white'
 let button = document.createElement('li');// кнопка (родитель)
 button.id = 'button';
 button.classList.add("button") 
-button.innerText= 'ё'
-
+button.innerText= '`'
 
 input_area.append(button);
 
@@ -35,6 +34,7 @@ let buttonID = document.getElementById("button");
 let button_1 = buttonID.cloneNode(true);
 button_1.innerText= '1'
 button_1.style.backgroundColor = 'rgb(47, 47, 47)'
+
 
 let button_2 = buttonID.cloneNode(true);
 button_2.innerText= '2'
@@ -81,9 +81,10 @@ button_plus.innerText= '='
 button_plus.style.backgroundColor = 'rgb(47, 47, 47)'
 
 let buttonBackspace = buttonID.cloneNode(true);
-buttonBackspace.innerText= 'Backspace'
+buttonBackspace.id = 'buttonBackspace';
+buttonBackspace.innerText= 'Backspace';
 buttonBackspace.style.width = '15%';
-buttonBackspace.style.marginRight = '1%'
+buttonBackspace.style.marginRight = '1%';
 
 input_area.append(button_1);
 input_area.append(button_2);
@@ -159,9 +160,10 @@ button_slash.innerText= '\\'
 button_slash.style.backgroundColor = 'rgb(47, 47, 47)'
 
 let button_del = buttonID.cloneNode(true);
-button_del.innerText= 'del'
+button_del.id = 'button_del';
+button_del.innerText= 'del';
 button_del.style.width = '8%';
-button_del.style.marginRight = '5%'
+button_del.style.marginRight = '5%';
 
 input_area.append(button_TAB);
 input_area.append(button_q);
@@ -184,9 +186,11 @@ let button_capsLock = buttonID.cloneNode(true);
 button_capsLock.innerText= 'CapsLock';
 button_capsLock.style.width = '11%';
 button_capsLock.id = 'button_capsLock';
+
 let button_a = buttonID.cloneNode(true);
 button_a.innerText= 'a'
 button_a.style.backgroundColor = 'rgb(47, 47, 47)'
+
 let button_s = buttonID.cloneNode(true);
 button_s.innerText= 's'
 button_s.style.backgroundColor = 'rgb(47, 47, 47)'
@@ -228,7 +232,8 @@ button_quotes.innerText= "'"
 button_quotes.style.backgroundColor = 'rgb(47, 47, 47)'
 
 let button_enter= buttonID.cloneNode(true);
-button_enter.innerText= 'enter'
+button_enter.id = 'button_enter';
+button_enter.innerText= 'enter';
 button_enter.style.width = '15%';
 
 input_area.append(button_capsLock);
@@ -248,6 +253,7 @@ let arrButtonTreeRow = [button_capsLock,button_a,button_s,button_d,button_f,butt
 
 let button_shift = buttonID.cloneNode(true);
 button_shift.innerText= 'Shift'
+button_shift.id = 'button_shift_left'
 button_shift.style.width = '19%'
 
 let button_z = buttonID.cloneNode(true);
@@ -326,7 +332,8 @@ let button_alt = buttonID.cloneNode(true);
 button_alt.innerText= 'alt'
 
 let button_space = buttonID.cloneNode(true);
-button_space.innerText= ''
+button_space.id = 'button_space'
+button_space.innerText= "" 
 button_space.style.width = '31%'
 button_space.style.backgroundColor = 'rgb(47, 47, 47)'
 
@@ -357,7 +364,7 @@ input_area.append(button_left);
 input_area.append(button_down);
 input_area.append(button_right);
 let arrButtonFiveRow = [button_ctrl,button_win,button_alt,button_space,button_alt,button_ctrl2,button_left,button_down,button_right]
-const arrButtonLetters = [ 
+let arrButtonLetters = [ 
     button_q.id = 'button_lett',
     button_w.id = 'button_lett',
     button_e.id = 'button_lett',
@@ -384,13 +391,40 @@ const arrButtonLetters = [
     button_b.id = 'button_lett',
     button_n.id = 'button_lett',
     button_m.id = 'button_lett']
+    let arrButtonLetterstwo = [ 
+        button_q,
+        button_w,
+        button_e,
+        button_r,
+        button_t,
+        button_y,
+        button_u,
+        button_i,
+        button_o,
+        button_p,
+        button_a,
+        button_s,
+        button_d,
+        button_f,
+        button_g,
+        button_h,
+        button_j,
+        button_k,
+        button_l,
+        button_z,
+        button_x,
+        button_c,
+        button_v,
+        button_b,
+        button_n,
+        button_m]
 let style  = document.createElement('style'); // стили для кнопок
-const styleClass = document.createTextNode('.button:active {border-radius: 26px !important; transition:border-radius 0.1s;}\n .button_lett:active {border-radius:26px; transition:border-radius 0.1s;}\n .button_lett:hover {background-color:red !important;}\n .button:hover {background-color:red !important;}\n.button {width: 5%;display: block;height: 55px;margin-right: 1%;margin-left: 0%;color: rgb(255, 141, 0);border-radius: 7px;box-shadow: rgba(0, 0, 0, 0.75) 0px 2px 5px 0px;cursor: pointer;font-family: Play;text-align: center;background-color: rgb(74, 74, 74)}')
+const styleClass = document.createTextNode('.button:active {border-radius: 26px ; transition:border-radius 0.1s;}\n .button_lett:active {border-radius:26px; transition:border-radius 0.1s;}\n .button_lett:hover {background-color:red;}\n .button:hover {background-color:red !important;}\n.button {width: 5%;display: block;height: 55px;margin-right: 1%;margin-left: 0%;color: rgb(255, 141, 0);border-radius: 7px;box-shadow: rgba(0, 0, 0, 0.75) 0px 2px 5px 0px;cursor: pointer;font-family: Play;text-align: center;background-color: rgb(74, 74, 74)}')
 style.appendChild(styleClass)
 document.body.append(style);
 
 let counter = 0;
-input_area.addEventListener('click',(event)=>{ //меняется цвет кнопок при нажатии
+input_area.addEventListener('click',(event)=>{ //меняется цвет кнопок при нажатии, работа с кнопками
     input_area.querySelectorAll('li').forEach(el=>el.classList.remove('button:active'));
     if (event.target.className == "input_area" ) {
         event.target.className != 'button:active'
@@ -403,13 +437,65 @@ input_area.addEventListener('click',(event)=>{ //меняется цвет кн�
         input_area.classList.remove('button:active')
     }
   if (event.target.id == 'button_lett' && counter%2 != true ) {
-    area.innerHTML+=event.target.innerText
+    area.value+=event.target.innerText
   }
     if (event.target.id == 'button_lett' && counter%2 == true ) { 
-        area.innerHTML+=event.target.innerText.toUpperCase()
+        area.value+=event.target.innerText.toUpperCase()
+    }
+    if (event.target.id == 'button_space') { // button space
+        area.value+= ' '
+    }
+    if (event.target.id == 'button_enter') { // button enter
+        area.value+='\n'
+    }
+    
+    if (event.target.id == 'button_del' || event.target.id == 'buttonBackspace') { // button del, backspace
+        area.value = area.value.slice(0, -1)
     }
   
 })
+let element = document.body; //запрет выделения текста
+element.onselectstart = function () { return false; }
+element.onmousedown = function () { return false; }
+
+
+
+
+
+let capsLockCounter = 0;
+button_capsLock.onclick = function() { // Функционал кнопки Capslock
+capsLockCounter++
+ if ( capsLockCounter%2 == true) {
+    button_capsLock.style.backgroundColor = 'red';
+    button_capsLock.style.borderRadius = '19px';
+    for (let i = 0; i < arrButtonLetterstwo.length; i++) {
+        arrButtonLetterstwo[i].innerHTML = arrButtonLetterstwo[i].innerHTML.toLocaleUpperCase()
+    }
+ }
+ if ( capsLockCounter%2 != true) {
+    button_capsLock.style.backgroundColor = 'rgb(74, 74, 74)';
+    button_capsLock.style.borderRadius = '7px'
+    for (let i = 0; i < arrButtonLetterstwo.length; i++) {
+        arrButtonLetterstwo[i].innerHTML = arrButtonLetterstwo[i].innerHTML.toLocaleLowerCase()
+    }
+ }
+
+}
+
+let shiftLeftCounter = 0;
+
+button_shift.addEventListener('mousedown',(event)=>{ //меняется цвет кнопок при нажатии, работа с кнопками
+    button.onmouseover = function() {
+    return  button.innerText= '~' ;
+    }
+
+    button.onmouseout = function() {
+    return button.innerText= '`';
+        }
+        
+})
+
+
 
 
 
